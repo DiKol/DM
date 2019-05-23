@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DataMart.Models.Users.User>
+@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>
+    <button type="button" class="btn btn-sm btn-success" data-toggle="modal" onclick="RenderActions('/User/Create')" data-target="#modalCreate">Create new</button>
+</p>
+<table class="table" id="tableMain">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birth)
+        </th>
+        <th></th>
+    </tr>
+    <tbody id="indexTbody">
+        @foreach (var item in Model)
+        {
+            <tr id="@item.Id">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Birth)
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" onclick="RenderActions('/User/Edit/' + @item.Id)" data-target="#modalCreate">Edit</button> | 
+                    <button class="btn btn-sm btn-danger" data-toggle="modal" onclick="RenderActions('/User/Delete/' + @item.Id)" data-target="#modalCreate">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div id="modalCreate" class="modal fade" role="dialog" data-backdrop="false" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="OpenDialog" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>

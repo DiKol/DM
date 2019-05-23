@@ -1,0 +1,3 @@
+﻿Enable-Migrations -ContextTypeName UserDbContext -MigrationsDirectory Migrations\User
+add-migration -configurationTypeName DM.Migrations.User.Configuration "InitialCreate"
+update-database -ConfigurationTypeName DM.Migrations.User.Configuration
