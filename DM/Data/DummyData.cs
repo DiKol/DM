@@ -15,15 +15,15 @@ namespace DM.Data
             {
                 new User()
                 {
-                    Id = 1, FirstName = "Dmytro1", LastName = "Kolesnyk", Birth = DateTime.Now
+                    Id = 1, FirstName = "Dmytro1", LastName = "Kolesnyk", Birth = DateTime.Now, Order = 1
                 },
                 new User()
                 {
-                    Id = 2, FirstName = "Dmytro1", LastName = "Kolesnyk", Birth = DateTime.Now
+                    Id = 2, FirstName = "Dmytro2", LastName = "Kolesnyk", Birth = DateTime.Now, Order = 2
                 },
                 new User()
                 {
-                    Id = 3, FirstName = "Dmytro1", LastName = "Kolesnyk", Birth = DateTime.Now
+                    Id = 3, FirstName = "Dmytro3", LastName = "Kolesnyk", Birth = DateTime.Now, Order = 3
                 },
 
 

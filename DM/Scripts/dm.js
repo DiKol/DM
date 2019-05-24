@@ -14,7 +14,7 @@ function CreateNew() {
     if (!ValidateInputs())
         return;
 
-    
+
 
     $.ajax({
         url: '/User/Create/',
@@ -32,7 +32,64 @@ function CreateNew() {
             raw += "<td>" + "<button class = \"btn btn-sm btn-primary\" data-toggle=\"modal\" data-target=\"#modalCreate\" onclick=\"RenderActions('/User/Edit/' + " + response.Id + ")\">Edit</button> | " +
                 "<button class = \"btn btn-sm btn-danger\" data-toggle=\"modal\" data-target=\"#modalCreate\" onclick=\"RenderActions('/User/Delete/' + " + response.Id + ")\">Delete</button></td>";
             raw += "</tr>";
+
             $('#indexTbody').append(raw);
+        },
+        error: function (err) { alert("Error: " + err.responseText); }
+    });
+}
+
+
+function AddTop(id) {
+    if (!ValidateInputs())
+        return;
+
+    $.ajax({
+        url: '/User/AddTop/',
+        type: 'POST',
+        data: $('form').serialize(),
+        success: function (response) {
+            Clean();
+            $('#btnCloseModal').click();
+            var raw = '';
+            raw += "<tr id=" + response.Id + '>';
+            raw += "<td>" + response.Id + "</td>";
+            raw += "<td>" + response.FirstName + "</td>";
+            raw += "<td>" + response.LastName + "</td>";
+            raw += "<td>" + (new Date(parseInt(response.Birth.substr(6)))).toLocaleString() + "</td>";
+            raw += "<td>" + "<button class = \"btn btn-sm btn-primary\" data-toggle=\"modal\" data-target=\"#modalCreate\" onclick=\"RenderActions('/User/Edit/' + " + response.Id + ")\">Edit</button> | " +
+                "<button class = \"btn btn-sm btn-danger\" data-toggle=\"modal\" data-target=\"#modalCreate\" onclick=\"RenderActions('/User/Delete/' + " + response.Id + ")\">Delete</button></td>";
+            raw += "</tr>";
+
+            location.reload();
+        },
+        error: function (err) { alert("Error: " + err.responseText); }
+    });
+}
+
+
+function AddBottom(id) {
+    if (!ValidateInputs())
+        return;
+
+    $.ajax({
+        url: '/User/AddBottom/',
+        type: 'POST',
+        data: $('form').serialize(),
+        success: function (response) {
+            Clean();
+            $('#btnCloseModal').click();
+            var raw = '';
+            raw += "<tr id=" + response.Id + '>';
+            raw += "<td>" + response.Id + "</td>";
+            raw += "<td>" + response.FirstName + "</td>";
+            raw += "<td>" + response.LastName + "</td>";
+            raw += "<td>" + (new Date(parseInt(response.Birth.substr(6)))).toLocaleString() + "</td>";
+            raw += "<td>" + "<button class = \"btn btn-sm btn-primary\" data-toggle=\"modal\" data-target=\"#modalCreate\" onclick=\"RenderActions('/User/Edit/' + " + response.Id + ")\">Edit</button> | " +
+                "<button class = \"btn btn-sm btn-danger\" data-toggle=\"modal\" data-target=\"#modalCreate\" onclick=\"RenderActions('/User/Delete/' + " + response.Id + ")\">Delete</button></td>";
+            raw += "</tr>";
+
+            location.reload();
         },
         error: function (err) { alert("Error: " + err.responseText); }
     });
@@ -61,9 +118,7 @@ function EditUser(id) {
             $('#' + res.Id + ' td').each(function (i) {
                 
                 if (i === 3) {
-                    $(this).text(
-                        (new Date(parseInt(res[keys[i]].substr(6)))).toLocaleString()
-                    );
+                    $(this).text((new Date(parseInt(res[keys[i]].substr(6)))).toLocaleString());
                     
                 } else {
                     $(this).text(res[keys[i]]);

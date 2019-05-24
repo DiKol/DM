@@ -12,7 +12,8 @@ namespace DataMart.Models.Users
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public DateTime Birth { get; set; }
+        public DateTime? Birth { get; set; }
+        public int Order { get; set; }
 
     }
 }

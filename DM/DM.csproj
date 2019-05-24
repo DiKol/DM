@@ -206,6 +206,14 @@
     <Compile Include="Migrations\User\201905231513376_InitialCreate.Designer.cs">
       <DependentUpon>201905231513376_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\User\201905240929002_Order.cs" />
+    <Compile Include="Migrations\User\201905240929002_Order.Designer.cs">
+      <DependentUpon>201905240929002_Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\User\201905240939190_Birth.cs" />
+    <Compile Include="Migrations\User\201905240939190_Birth.Designer.cs">
+      <DependentUpon>201905240939190_Birth.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\User\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -302,6 +310,8 @@
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\User\AddTop.cshtml" />
+    <Content Include="Views\User\AddBottom.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -320,6 +330,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\User\201905231513376_InitialCreate.resx">
       <DependentUpon>201905231513376_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\User\201905240929002_Order.resx">
+      <DependentUpon>201905240929002_Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\User\201905240939190_Birth.resx">
+      <DependentUpon>201905240939190_Birth.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
